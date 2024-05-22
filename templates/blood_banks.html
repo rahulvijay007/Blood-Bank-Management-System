@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Blood Banks</h2>
+<form method="POST">
+    <label for="location">Location:</label>
+    <input type="text" name="location" required><br>
+    <label for="contact_number">Contact Number:</label>
+    <input type="text" name="contact_number" required><br>
+    <label for="address">Address:</label>
+    <input type="text" name="address" required><br>
+    <button type="submit">Add Blood Bank</button>
+</form>
+<h3>List of Blood Banks</h3>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Location</th>
+        <th>Contact Number</th>
+        <th>Address</th>
+    </tr>
+    {% for bank in blood_banks %}
+    <tr>
+        <td>{{ bank[0] }}</td>
+        <td>{{ bank[1] }}</td>
+        <td>{{ bank[2] }}</td>
+        <td>{{ bank[3] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

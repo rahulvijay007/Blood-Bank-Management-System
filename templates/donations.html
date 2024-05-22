@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Donations</h2>
+<form method="POST">
+    <label for="donor_id">Donor ID:</label>
+    <input type="text" name="donor_id" required><br>
+    <label for="donation_date">Donation Date:</label>
+    <input type="date" name="donation_date" required><br>
+    <label for="blood_group">Blood Group:</label>
+    <input type="text" name="blood_group" required><br>
+    <label for="hemoglobin_level">Hemoglobin Level:</label>
+    <input type="text" name="hemoglobin_level" required><br>
+    <label for="status_of_donation">Status:</label>
+    <input type="text" name="status_of_donation" required><br>
+    <label for="blood_unit_expiry_date">Expiry Date:</label>
+    <input type="date" name="blood_unit_expiry_date" required><br>
+    <button type="submit">Record Donation</button>
+</form>
+<h3>List of Donations</h3>
+<table>
+    <tr>
+        <th>Donation Number</th>
+        <th>Donor ID</th>
+        <th>Donation Date</th>
+        <th>Blood Group</th>
+        <th>Hemoglobin Level</th>
+        <th>Status</th>
+        <th>Expiry Date</th>
+    </tr>
+    {% for donation in donations %}
+    <tr>
+        <td>{{ donation[0] }}</td>
+        <td>{{ donation[1] }}</td>
+        <td>{{ donation[2] }}</td>
+        <td>{{ donation[3] }}</td>
+        <td>{{ donation[4] }}</td>
+        <td>{{ donation[5] }}</td>
+        <td>{{ donation[6] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
